@@ -20,8 +20,9 @@
 
     <div class="">
       <strong data-i18n="orderShipping.tracking">Tracking</strong>
-      <span>{{tracking}}</span> -
+      <span>{{tracking}}</span> - {{transactionId}}
       <span class="badge badge-{{shipmentStatus.status}}">{{shipmentStatus.label}}</span>
+      <span class="badge badge-{{paymentStatus}}">{{paymentStatus}}</span>
     </div>
 
   </div>

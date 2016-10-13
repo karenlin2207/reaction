@@ -1,0 +1,425 @@
+[{
+  "language": "中文(繁體)",
+  "i18n": "zhtw",
+  "ns": "core",
+  "translation": {
+    "core": {
+      "languages": {
+        "select": "選擇語言",
+        "english": "English",
+        "chinese": "中文(繁體)"
+      },
+      "admin": {
+        "shortcut": {
+          "dashboardLabel": "控制台",
+          "ordersLabel": "訂單",
+          "addProductLabel": "增加商品",
+          "accountsLabel": "帳號"
+        },
+        "dashboard": {
+          "coreLabel": "核心",
+          "coreDescription": "核心功能",
+          "coreTitle": "控制台",
+          "ordersLabel": "訂單",
+          "ordersDescription": "執行訂單",
+          "importLabel": "import",
+          "importDescription": "support import and remove function",
+          "accountsLabel": "帳號",
+          "accountsDescription": "管理會員登入方法",
+          "socialLabel": "社群媒體",
+          "socialDescription": "分享給社群媒體",
+          "basicShippingLabel": "一般物流",
+          "basicShippingDescription": "使用固定費率計算費用",
+          "inventoryLabel": "庫存",
+          "inventoryDescription": "基本庫存管理",
+          "analyticsLabel": "分析",
+          "analyticsDescription": "事件追蹤與分析",
+          "paypalLabel": "PayPal",
+          "paypalDescription": "用PayPal付款",
+          "examplePaymentProviderLabel": "普通付款",
+          "examplePaymentProviderDescription": "普通付款方式"
+        },
+        "settings": {
+          "accountSettingsLabel": "帳號設定",
+          "shopSettingsLabel": "商店設定",
+          "socialSettingsLabel": "社群媒體設定",
+          "shippingSettingsLabel": "物流方式設定",
+          "inventorySettingsLabel": "庫存管理設定",
+          "analyticsSettingsLabel": "分析設定",
+          "paypalSettingsLabel": "PayPal設定",
+          "genericPaymentSettingsLabel": "一般付款方式設定"
+        }
+      },
+      "accounts": {
+        "addMember": "增加會員",
+        "shopMembers": "商店會員",
+        "guests": "訪客"
+      },
+      "app": {
+        "save": "儲存",
+        "saveAndContinue": "儲存並繼續",
+        "saveChanges": "儲存修改",
+        "cancel": "取消",
+        "submit": "送出",
+        "delete": "删除",
+        "create": "新增",
+        "close": "關閉",
+        "settings": "設定",
+        "loading": "載入中",
+        "toggle": "切換",
+        "warning": "糟糕!",
+        "unauthorizedMessage": "您没有權限看這些内容。",
+        "monthOptions": "選擇月份",
+        "yearOptions": "選擇年份",
+        "timezoneOptions": "選擇時區",
+        "shopSettings": "商店設定",
+        "dashboard": "控制台",
+        "print": "列印",
+        "notFound": "找不到此頁面。",
+        "pageNotFound": "找不到此頁面。",
+        "notFoundTitle": "糟糕！",
+        "notFoundError": "找不到此頁面。",
+        "productNotFound": "找不到此商品",
+        "loadMoreProducts": "載入更多商品"
+      },
+      "shopSettings": {
+        "general": "通用",
+        "address": "地址",
+        "mail": "信箱",
+        "localization": "本地化",
+        "options": "選項",
+        "paymentMethods": "支付方式"
+      },
+      "header": {
+        "tagsAdd": "新增標籤",
+        "search": "搜尋商品"
+      },
+      "productDetail": {
+        "productManagement": "商品管理",
+        "whenYouAreDone": "（完成編輯时點擊）",
+        "tags": "標籤",
+        "tagsAdd": "加入標籤",
+        "addInventory": "增加庫存",
+        "barcode": "條碼",
+        "confirmDeleteBarcode": "您確定要删除條碼？",
+        "details": "詳細資訊",
+        "detailsName": "名稱",
+        "detailsInfo": "資訊",
+        "generate": "產生",
+        "generateBarcodes": "產生條碼",
+        "hideBarcodes": "隱藏條碼",
+        "options": "選項",
+        "addToCart": "加入到購物車",
+        "chooseOptions": "在加入到購物車之前請選擇選項。",
+        "outOfStock": "抱歉，這個商品没有庫存了！",
+        "productDeleteError": "在删除商品時發生了錯誤。 ",
+        "publishFirst": "在加入到購物車之前請先發布商品。",
+        "quantityAbbreviation": "數量",
+        "selectOption": "在加入到購物車之前請選擇選項。",
+        "addedToCart": "已加入",
+        "showBarcodes": "顯示條碼",
+        "soldOut": "已售完！",
+        "backOrder": "Backorder",
+        "limitedSupply": "供應有限",
+        "publishProductVisible": "商品可見",
+        "publishProductHidden": "商品隱藏",
+        "startTracking": "開始追蹤",
+        "addBarcode": "加入條碼",
+        "quantity": "數量",
+        "quantityGreaterThanZero": "錯誤: 數量必須大於0。",
+        "clonedAlert": "複製了",
+        "deletedAlert": "删除了",
+        "notFoundTitle": "糟糕！",
+        "notFoundError": "這不是您要找的商品。"
+      },
+      "tags": {
+        "addTag": "增加標籤",
+        "addGroupTag": "增加群標籤",
+        "addSubTag": "增加子標籤",
+        "removeTag": "删除標籤",
+        "createTag": "新增標籤"
+      },
+      "productDetailEdit": {
+        "title": "商品標題",
+        "pageTitle": "商品頁標題",
+        "vendor": "供應商",
+        "description": "商品描述",
+        "facebookMsg": "Facebook 訊息",
+        "twitterMsg": "Twitter 訊息",
+        "pinterestMsg": "Pinterest 訊息",
+        "googleplusMsg": "Google+ 訊息",
+        "duplicateVariant": "複製款式",
+        "addVariantOption": "加入款式",
+        "removeVariant": "删除款式",
+        "duplicateProduct": "複製商品",
+        "pinProduct": "固定商品",
+        "toggleSize": "切换大小",
+        "deleteProduct": "删除商品",
+        "publish": "發布",
+        "moreOptions": "更多選項"
+      },
+      "variantList": {
+        "moreOptions": "還有更多選項",
+        "createVariant": "新建款式"
+      },
+      "gridPackage": {
+        "pkgEnabled": "现在可用",
+        "pkgDisabled": "现在不可用"
+      },
+      "cartDrawer": {
+        "empty": "我們非常抱歉，您的購物車是空的。",
+        "keepShopping": "繼續購物",
+        "checkout": "立刻結算"
+      },
+      "cartSubTotals": {
+        "head": "您的購物車",
+        "items": "購买的商品",
+        "subtotal": "小計",
+        "shipping": "運費",
+        "tax": "稅",
+        "total": "合計"
+      },
+      "cartDrawerItems": {
+        "left": "剩余"
+      },
+      "order": {
+        "created": "已產生",
+        "reference": "参考",
+        "invoice": "出貨單",
+        "ordersNotFound": "没有查询到訂單訊息",
+        "approveInvoice": "審核",
+        "makeAdjustments": "修改",
+        "capturePayment": "收款",
+        "paymentCaptured": "已收款",
+        "capturedTotal": "已收款總额",
+        "refundAmount": "退款金额",
+        "applyRefund": "退款",
+        "adjustedTotal": "調整後的總金额",
+        "processor": "經手人",
+        "filter": {
+          "new": "新訂單",
+          "captured": "已收款",
+          "processing": "正在處理",
+          "shipped": "已出貨",
+          "completed": "已完成",
+          "canceled": "已取消",
+          "refunded": "已退款"
+        }
+      },
+      "orderShipping": {
+        "shipTo": "發到",
+        "shipped": "已出貨",
+        "notShipped": "未發貨",
+        "noTracking": "不追蹤",
+        "tracking": "追蹤",
+        "addtracking": "加入追蹤",
+        "shipmentEmpty": "出貨單中没有貨品",
+        "shipmentPacked": "所有貨品已經打包",
+        "shipped": "已出貨",
+        "shippingNotifyCustomer": "通知客户他們的貨品即将被發出。",
+        "resendNotification": "重新發送出貨通知"
+      },
+      "cartCompleted": {
+        "thankYou": "谢谢!",
+        "itemsFrom": "物品清單",
+        "yourOrderIsNow": "您目前的訂單",
+        "summaryMessage": "感谢您的訂單",
+        "submitted": "已提交",
+        "registerGuest": "您好! 請加入您的信箱以便追蹤訂單状况。",
+        "trackYourDelivery": "您的訂單訊息將會送出",
+        "noOrdersFound": "没有找到訂單。",
+        "adminMessage": "您在以管理員身份查看訂單"
+      },
+      "checkoutLogin": {
+        "welcome": "歡迎，很高興為您服務！",
+        "loginCompleted": "完成登入",
+        "createOrLogin": "登入或註冊",
+        "guestOrLogin": "登入或随便逛逛",
+        "continueAsGuest": "繼續逛逛",
+        "guestMessage": "您现在可以直接结帳，稍候可以註冊帳號。"
+      },
+      "addressBookGrid": {
+        "addAddress": "加入地址",
+        "chooseAddress": "選擇收貨地址和帳單地址",
+        "createDefault": "新增一個預設地址",
+        "selectShippingAddress": "收貨地址",
+        "selectBillingAddress": "帳單地址"
+      },
+      "addressBookAdd": {
+        "addAddress": "加入新的地址",
+        "createAddress": "新增您的預設地址"
+      },
+      "addressBookEdit": {
+        "editAddress": "編輯地址"
+      },
+      "address": {
+        "country": "國家",
+        "fullName": "姓名",
+        "address1": "地址1",
+        "address2": "地址2",
+        "postal": "郵遞區號",
+        "city": "市",
+        "region": "省",
+        "phone": "電話",
+        "isShippingDefault": "設為您的收貨地址",
+        "isBillingDefault": "設為您的帳單地址",
+        "isCommercial": "公司地址"
+      },
+      "checkoutProgressBar": {
+        "login": "登入",
+        "shippingBilling": "輸入收貨和帳單地址",
+        "shippingOptions": "選擇物流方式",
+        "reviewPayment": "核對訂單",
+        "complete": "完成訂單"
+      },
+      "checkoutPayment": {
+        "addPaymentToCompleteOrder": "通過付款來完成訂單",
+        "processingError": "您的支付遇到了問题",
+        "completeYourOrder": "完成您的訂單",
+        "noPaymentMethods": "未設定支付方式。",
+        "configureNow": "现在設定。"
+      },
+      "checkoutReview": {
+        "review": "核對訂單"
+      },
+      "checkoutShipping": {
+        "selectShippingOption": "選擇物流方式",
+        "noShippingMethods": "没有設定物流方式。",
+        "configureNow": "现在設定。",
+        "shipping": "物流"
+      },
+      "shopEditForm": {
+        "name": "姓名",
+        "email": "電子信箱"
+      },
+      "shopEditAdressForm": {
+        "company": "公司",
+        "fullname": "姓名",
+        "address1": "地址1"
+      },
+      "consoleIcon": {
+        "iconTitle": "顯示控制台",
+        "text": "控制台"
+      },
+      "createProductIcon": {
+        "iconTitle": "增加商品",
+        "text": "增加"
+      },
+      "social": {
+        "facebook": "Facebook",
+        "google": "Google",
+        "github": "GitHub",
+        "meetup": "Meetup",
+        "twitter": "Twitter",
+        "weibo": "微博"
+      },
+      "accountsUI": {
+        "members": "會員",
+        "guest": "訪客",
+        "addMember": "加入會員",
+        "add": "加入",
+        "and": "並且",
+        "back": "返回",
+        "changePassword": "修改密碼",
+        "choosePassword": "輸入密碼",
+        "clickAgree": "點擊註冊代表您同意我們的",
+        "configure": "設定",
+        "createAccount": "新增帳號",
+        "currentPassword": "舊密碼",
+        "dontHaveAnAccount": "没有帳號？",
+        "email": "Email",
+        "emailAddress": "Email",
+        "emailResetLink": "Email重置連結",
+        "forgotPassword": "重置密碼",
+        "ifYouAlreadyHaveAnAccount": "如果您已經有一個帳號",
+        "newPassword": "新密碼",
+        "newPasswordAgain": "再輸入一次新密碼",
+        "optional": "可選擇",
+        "or": "或者",
+        "password": "密碼",
+        "passwordAgain": "再輸入一次密碼",
+        "privacyPolicy": "隱私條款",
+        "remove": "删除",
+        "resetYourPassword": "重置您的密碼",
+        "setPassword": "設定密碼",
+        "sign": "註冊",
+        "signIn": "登入",
+        "signin": "登入",
+        "signInWith": "登入",
+        "signUpWith": "註冊",
+        "signedIn": "您已經登入",
+        "signOut": "退出",
+        "signUp": "註冊",
+        "signupCode": "註冊碼",
+        "signUpWithYourEmailAddress": "以您的電子信箱註冊",
+        "terms": "使用條款",
+        "updateYourPassword": "更新您的密碼",
+        "updatePasswordAndContinue": "更新並繼續",
+        "username": "用户名",
+        "usernameOrEmail": "用户名或電子信箱",
+        "with": "和",
+        "checkoutAsGuest": "不註冊帳號，直接结帳",
+        "role": "角色",
+        "checkedRoles": "帳號權限",
+        "AdminRoles": "",
+        "SupervisorRoles": "供應商",
+        "GuestRoles": "訪客",
+        "info": {
+          "emailSent": "Email已發出",
+          "emailVerified": "信箱已驗證",
+          "passwordChanged": "密碼已修改",
+          "passwordReset": "重置密碼",
+          "passwordResetSend": "重置密碼的Email已經發送。",
+          "invitationSent": "帳號已新增",
+          "sendInvitation": "新增帳號"
+        },
+        "error": {
+          "emailRequired": "需要信箱地址。",
+          "passwordRequired": "需要輸入密碼。",
+          "passwordMustBeAtLeast6CharactersLong": "密碼最少包含6個字符。",
+          "passwordMustContainRequirements": "密碼至少要含有一個數字或符號。",
+          "minChar": "密碼最少包含6個字符。",
+          "pwdsDontMatch": "密碼有誤。",
+          "pwOneDigit": "密碼至少包含一位數字。",
+          "pwOneLetter": "密碼需要一個字母。",
+          "signInRequired": "您必须先登入。",
+          "signupCodeIncorrect": "註冊碼有誤。",
+          "signupCodeRequired": "需要註冊碼。",
+          "usernameIsEmail": "用户名不能是信箱地址。",
+          "usernameRequired": "需要輸入用户名。",
+          "emailAlreadyExists": "信箱已被註冊。",
+          "emailDoesntMatchTheCriteria": "信箱不合格。",
+          "invalidLoginToken": "登入無效。",
+          "loginForbidden": "登入被禁止。",
+          "serviceUnknown": "未知服务。",
+          "unrecognizedOptionsForLoginRequest": "登入請求中有不能辨認的選項",
+          "userValidationFailed": "用户驗證失敗",
+          "usernameAlreadyExists": "用户名已存在。",
+          "youAreNotLoggedIn": "您還没有登入。",
+          "youveBeenLoggedOutByTheServer": "您的帳號已經被登出，請重新登入。",
+          "yourSessionHasExpired": "已過期，請重新登入。",
+          "noMatchingLoginAttemptFound": "没有對應的帳號登入记录。",
+          "passwordIsOld": "这是您用過的密碼，請重新設定密碼。",
+          "incorrectPassword": "密碼錯誤。",
+          "invalidEmail": "电子信箱無效。",
+          "addressMustBeAValidEMailAddress": "电子信箱無效。",
+          "mustBeLoggedIn": "必须登入。",
+          "needToSetUsernameOrEmail": "需要設定一個用户名或者信箱地址。",
+          "oldPasswordFormat": "舊密碼的格式。",
+          "passwordMayNotBeEmpty": "密碼不能為空。",
+          "signupsForbidden": "禁止註冊",
+          "tokenExpired": "令牌已過期",
+          "tokenHasInvalidEmailAddress": "令牌含有無效信箱地址。",
+          "userHasNoPasswordSet": "用户没有設定密碼。",
+          "userNotFound": "没有此用户。",
+          "verifyEmailLinkExpired": "用於驗證信箱的連結已經失效。",
+          "verifyEmailLinkIsForUnknownAddress": "用於驗證信箱的連結指向未知網址。",
+          "matchFailed": "配對失敗。",
+          "unknownError": "未知錯誤。",
+	  "alreadyCreated": "新增失敗，信箱已註冊"
+        }
+      }
+    }
+  }
+}]
+

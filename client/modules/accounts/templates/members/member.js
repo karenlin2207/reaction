@@ -2,6 +2,7 @@ import { Reaction } from "/client/api";
 import { Packages, Shops } from "/lib/collections";
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
+import * as Collections from "/lib/collections";
 
 const getPermissionMap = (permissions) => {
   const permissionMap = {};
@@ -28,12 +29,36 @@ Template.member.events({
   }
 });
 
+Template.member.helpers({
+  manageChildrenPermission: function(){
+    let user = Meteor.users.findOne({_id:this.userId});
+    let childrens = Collections.Accounts.findOne(Meteor.user()._id).childrensId;
+    for (var i=0;i<childrens.length;i++){
+      if (childrens[i]=== this.userId){
+         if (user.username) {
+          if (!Roles.userIsInRole(this.userId, "owner", this.shopId)){
+            return true;
+          }
+         }
+      }
+    }
+  }
+});
+
+
 Template.memberSettings.helpers({
   isOwnerDisabled: function () {
     if (Meteor.userId() === this.userId) {
       if (Roles.userIsInRole(this.userId, "owner", this.shopId)) {
         return true;
       }
+    }
+  },
+  hasthisPermissions: function(permissions){
+    if (!Roles.userIsInRole(Meteor.userId(), permissions, this.shopId)){
+      return true;
+    }else{
+      return false;
     }
   },
   hasPermissionChecked: function (permission, userId) {
@@ -133,10 +158,14 @@ Template.memberSettings.events({
     } else {
       permissions.push(self.permission);
     }
-    if ($(event.currentTarget).is(":checked")) {
-      Meteor.call("accounts/addUserPermissions", member.userId, permissions, this.shopId);
-    } else {
-      Meteor.call("accounts/removeUserPermissions", member.userId, permissions, this.shopId);
+    if (!Roles.userIsInRole(Meteor.userId(), permissions, this.shopId)){
+      throw new Meteor.Error(403,"You can't change this permissions!");
+    }else {
+      if ($(event.currentTarget).is(":checked")) {
+        Meteor.call("accounts/addUserPermissions", member.userId, permissions, this.shopId);
+      } else {
+        Meteor.call("accounts/removeUserPermissions", member.userId, permissions, this.shopId);
+      }
     }
   },
   "click [data-event-action=resetMemberPermission]": function (event, template) {

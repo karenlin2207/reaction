@@ -1,0 +1,1 @@
+export { allpay } from "./allpay";

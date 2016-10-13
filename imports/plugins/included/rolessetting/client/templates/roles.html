@@ -1,0 +1,122 @@
+
+<template name="rolesDashboardControls">
+  <button type="button" class="btn btn-default" data-event-action="addRoles">
+    <i class="fa fa-plus fa-lg" title="{{i18n 'roles.addRoles' 'Add roles'}}"></i> Add Roles
+  </button>
+</template>
+
+<template name="roles">
+  <div class="container-fluid-sm">
+    <div class="roles-rate-tables">
+      {{> rolesTable}}
+    </div>
+  </div>
+</template>
+
+<template name="rolesTable">
+  <div class="panel panel-default">
+    <table class="table table-striped">
+      <thead>
+        <tr class="info">
+          <th>{{i18n "Roles.name" "Roles Name"}}</th>
+          <th>{{i18n "Roles.Permissions" "Permissions"}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each roles}}
+        <tr class="editRoles" data-event-action="editRoles">
+          <td>{{rolesName}}</td>
+          <td>{{permissions}}</td>
+          <td class="text-right">
+            <i class="fa fa-cog edit-shipping-method" title="{{i18n 'Roles.editRoles' 'Edit Roles Permissions'}}" data-event-action="editRoles"></i>
+            <i class="fa fa-trash delete-shipping-method" data-provider-id="{{../_id}}" title="{{i18n 'shipping.deleteRoles' 'Delete Roles'}}" data-event-action="deleteRoles"></i>
+          </td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>  
+    {{>addRoles}}
+  </div>
+</template>
+
+<template name="addRoles">
+  <div class="panel">
+    <div class="panel-body">
+      <form id="roleSubmit">
+        <div class="col-md-12 form-group">
+          Role Name <input name="rolesName" id="rolesName"/>
+        </div>
+      </form>
+        <button id="submitbtn" class="btn btn-primary">Add New Role</button>
+    </div>
+  </div>
+</template>
+
+<template name="editRoles">
+  <form id="editRoles">
+    <div class="panel panel-default">
+      <div class="panel-heading">Edit Roles <strong>{{this.rolesName}}</strong></div>
+    <div class="panel-group shop-member-groups">
+      {{#each permissionGroups}}
+        <div class="panel panel-default">
+          <div class="panel-heading panel-heading-flex" data-event-action="expandPermission">
+            <div class="panel-title">
+              <label for="permissions-{{name}}-{{id}}">
+                <i class="{{icon}}"></i> {{label}}
+              </label>
+            </div>
+
+
+            <div class="panel-controls">
+              <input type="checkbox" class="checkbox-switch"
+                id="permissions-{{name}}-{{id}}"
+                data-userId="{{id}}"
+                data-permission="{{name}}"
+                {{hasPermissionChecked name id}}
+                {{isOwnerDisabled id}}
+                data-event-action="toggleMemberPermission"
+                disabled="{{hasthisPermissions name}}"
+              />
+            </div>
+          </div>
+
+          {{#if hasManyPermissions permissions}}
+            <ul class="list-group">
+              {{#each permissions}}
+                <li class="list-group-item shop-member-permission flex">
+                  <div class="flex-item-fill">
+                    <label for="sub-permissions-{{permission}}-{{id}}">
+                      <i class="{{orElse icon 'fa fa-gear'}}"></i> {{label}}
+                    </label>
+                  </div>
+
+                  <div class="flex-item-static">
+                    <input class="checkbox-switch"
+                      id="sub-permissions-{{permission}}-{{id}}"
+                      type="checkbox"
+                      data-userId="{{id}}"
+                      data-permission="{{permission}}"
+                      {{hasPermissionChecked permission id}}
+                      {{isOwnerDisabled id}}
+                      data-event-action="toggleMemberPermission"
+                      disabled="{{hasthisPermissions permission}}"
+                    />
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          {{/if}}
+        </div>
+      {{/each}}
+      </div>
+
+      <div class="panel-footer">
+        <div class="right">
+          <!-- <button type="button" class="btn btn-link" data-event-action="cancelShippingMethodEdit">Cancel</button> -->
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</template>

@@ -236,13 +236,16 @@ Meteor.methods({
    * @param {String} name - name to address email
    * @returns {Boolean} returns true
    */
-  "accounts/inviteShopMember": function (shopId, email, name) {
+  "accounts/inviteShopMember": function (shopId, ParentsUserId, email, name, thisRoles) {
     check(shopId, String);
     check(email, String);
     check(name, String);
-
+    check(ParentsUserId, Object);
+    check(thisRoles, String);
     this.unblock();
-
+    const defaultAdminRoles = ["owner", "admin", "guest", "account/profile"];
+    var defaultSupervisorRoles = [ "account/profile", "guest", "product", "tag", "index", "cart/checkout", "cart/completed", "reaction-checkout", "reaction-accounts", "accounts", "reaction-accounts/accountsSettings", "dashboard/accounts", "reaction-orders", "orders", "dashboard/orders", "dashboard/pdf/orders", "reaction-dashboard", "dashboard", "shopSettings" ] ;
+    var per = setRoles.findOne({_id:thisRoles});
     const shop = Collections.Shops.findOne(shopId);
 
     if (!shop) {
@@ -264,12 +267,45 @@ Meteor.methods({
       if (currentUser.profile) {
         currentUserName = currentUser.profile.name || currentUser.username;
       } else {
-        currentUserName = currentUser.username;
+          if (thisRoles === "0"){
+            currentUserName = "Admin - " + email;
+          }else if (thisRoles === "1"){
+            currentUserName = "Supervisor - " + email;
+          }else if (thisRoles !== "2"){
+            currentUserName = per.rolesName + " - " + email;
+          }        
       }
     } else {
       currentUserName = "Admin";
     }
-
+    if (thisRoles === "0"){
+      //
+      // Set Admin Roles
+      //
+      const packages = Packages.find().fetch();
+      for (let pkg of packages) {
+        Reaction.assignOwnerRoles(shopId, pkg.name, pkg.registry); 
+      }
+      // we don't use accounts/addUserPermissions here because we may not yet have permissions
+      Roles.setUserRoles(userId, defaultAdminRoles, shopId);
+      // the reaction owner has permissions to all sites by default
+      Roles.setUserRoles(userId, defaultAdminRoles, Roles.GLOBAL_GROUP);
+      // initialize package permissions
+      // we don't need to do any further permission configuration
+      //Hooks.Events.run("afterCreateDefaultAdminUser", user);
+    }else if(thisRoles === "1"){
+      //
+      // Set Supervisor Roles
+      //
+      if (!Reaction.hasPermission("owner",Meteor.userId(), shopId)){
+        defaultSupervisorRoles = Roles.getRolesForUser(Meteor.userId(),shopId);
+      }
+      Roles.setUserRoles(userId, defaultSupervisorRoles, shopId);
+      //Hooks.Events.run("afterCreateDefaultAdminUser", user);
+    }else if(thisRoles !== "2"){
+      Roles.setUserRoles(userId,per.permissions,shopId);
+      //Hooks.Events.run("afterCreateDefaultAdminUser", user);
+    }
     const user = Meteor.users.findOne({
       "emails.address": email
     });

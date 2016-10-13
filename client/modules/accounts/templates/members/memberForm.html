@@ -10,6 +10,17 @@
           <label for="member-form-email"><span data-i18n="accountsUI.email">Email</span></label>
           <input type="email" class="form-control" id="member-form-email" name="email" placeholder="bob.jane@example.com">
         </div>
+        <div class="form-group">
+          <label for="member-form-checkedRoles"><span data-i18n="accountsUI.checkedRoles">Accounts Permissions</span></label>
+          <input type="radio" data-i18n="accountsUI.AdminRoles" name="Roles" value="0" >Adminstrate
+          <input type="radio" data-i18n="accountsUI.SupervisorRoles" name="Roles" value="1" >Supervisor
+          <input type="radio" data-i18n="accountsUI.GuestRoles" name="Roles" value="2" >Guest
+          {{#each roles}}
+            {{#if permissions}}
+            <input type="radio" data-i18n="accountsUI.GuestRoles" name="Roles" value="{{_id}}" >{{rolesName}}
+            {{/if}}
+          {{/each}}          
+        </div>        
         <button type="submit" class="btn btn-primary">
           <span data-i18n="accountsUI.info.sendInvitation">Send invitation</span>
         </button>

@@ -7,10 +7,11 @@
         {{displayName this}}
         <span>&nbsp;({{this.email}})</span>
       </div>
+      {{#if manageChildrenPermission}}
       <div class="member-list-item-controls">
         <button class="btn btn-default" data-event-action="showMemberSettings" data-i18n="accountsUI.manage">Manage</button>
       </div>
-
+      {{/if}}
 </template>
 
 <template name="memberSettings">
@@ -55,6 +56,7 @@
                 {{hasPermissionChecked name ../../userId}}
                 {{isOwnerDisabled ../../userId}}
                 data-event-action="toggleMemberPermission"
+                disabled="{{hasthisPermissions name}}"
               />
             </div>
           </div>
@@ -78,6 +80,7 @@
                       {{hasPermissionChecked permission ../../../userId}}
                       {{isOwnerDisabled ../../../userId}}
                       data-event-action="toggleMemberPermission"
+                      disabled="{{hasthisPermissions permission}}"
                     />
                   </div>
                 </li>
