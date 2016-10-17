@@ -40,7 +40,9 @@ function  allpaycheckout(){
     allpaycheckout = Meteor.call("checkoutMac", cartInfo,function(err, result){
         //allpaycheckout = result.data;
         Session.set("allpaycheckout", result.data);
+        console.log(result.data);
       });
+    console.log(Session.get('allpaycheckout'));
     return Session.get('allpaycheckout');
   }
 
@@ -68,6 +70,7 @@ Template.allpayPaymentForm.events({
   'click #allpaybutton': function(event){
     event.preventDefault();
     var doc = allpaycheckout();
+    console.log(doc);
     var paymentMethod = {
             processor: "AllPay",
             storedCard: "AllPay",

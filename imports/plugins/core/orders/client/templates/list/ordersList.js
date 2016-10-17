@@ -23,6 +23,14 @@ Template.dashboardOrdersList.helpers({
       limit: 25
     });
   },
+    allpaycheckout : function(payment){
+    if (payment == "AllPay"){
+      return true;
+    }
+    else{
+      return false;
+    }
+  },
   allpaycheckoutform(){
       var allpaycheckout;
       var strUrl = location.search;

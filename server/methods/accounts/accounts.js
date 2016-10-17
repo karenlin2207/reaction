@@ -1,7 +1,7 @@
 import * as Collections from "/lib/collections";
 import * as Schemas from "/lib/collections/schemas";
 import { Logger, Reaction } from "/server/api";
-
+import { setRoles, Packages } from "/lib/collections";
 
 /**
  * Reaction Account Methods
@@ -278,7 +278,24 @@ Meteor.methods({
     } else {
       currentUserName = "Admin";
     }
-    if (thisRoles === "0"){
+
+    const user = Meteor.users.findOne({
+      "emails.address": email
+    });
+
+    const tmpl = "accounts/inviteShopMember";
+    SSR.compileTemplate("accounts/inviteShopMember", Reaction.Email.getTemplate(tmpl));
+
+    if (!user) {
+      const userId = Accounts.createUser({
+        email: email,
+        username: name
+      });
+
+      const newUser = Meteor.users.findOne(userId);
+
+
+      if (thisRoles === "0"){
       //
       // Set Admin Roles
       //
@@ -306,21 +323,6 @@ Meteor.methods({
       Roles.setUserRoles(userId,per.permissions,shopId);
       //Hooks.Events.run("afterCreateDefaultAdminUser", user);
     }
-    const user = Meteor.users.findOne({
-      "emails.address": email
-    });
-
-    const tmpl = "accounts/inviteShopMember";
-    SSR.compileTemplate("accounts/inviteShopMember", Reaction.Email.getTemplate(tmpl));
-
-    if (!user) {
-      const userId = Accounts.createUser({
-        email: email,
-        username: name
-      });
-
-      const newUser = Meteor.users.findOne(userId);
-
       if (!newUser) {
         throw new Error("Can't find user");
       }
