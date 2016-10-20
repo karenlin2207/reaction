@@ -22,8 +22,6 @@ export const atmPayment = new SimpleSchema({
   },
   cardNumber: {
     type: String,
-    min: 5,
-    max: 6,
     label: "匯款帳號末五碼"
   }
 });
