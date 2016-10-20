@@ -55,11 +55,13 @@ Meteor.methods({
     const total = parseFloat(paymentData.total);
     let result;
     try {
-      const transaction = CODApi.methods.authorize.call({
-        transactionType: transactionType,
-        cardData: cardData,
-        paymentData: paymentData
-      });
+      const transaction = {
+        success: true,
+        id: Random.id(),
+        cardNumber: cardData.number.slice(-4),
+        amount: paymentData.total,
+        currency: "USD"
+      };
 
       result = {
         saved: true,
