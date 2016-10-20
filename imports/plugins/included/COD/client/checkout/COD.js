@@ -68,6 +68,7 @@ AutoForm.addHooks("COD-payment-form", {
             transactionId: transaction.transactionId,
             currency: transaction.currency,
             amount: transaction.amount,
+            paymentstatus:"unpaid",
             status: transaction.status,
             mode: "authorize",
             createdAt: new Date(),
