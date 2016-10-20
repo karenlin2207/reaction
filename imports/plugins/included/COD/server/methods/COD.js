@@ -58,9 +58,9 @@ Meteor.methods({
       const transaction = {
         success: true,
         id: Random.id(),
-        cardNumber: cardData.number.slice(-4),
+        cardNumber: cardData.number,
         amount: paymentData.total,
-        currency: "USD"
+        currency: "NTD"
       };
 
       result = {

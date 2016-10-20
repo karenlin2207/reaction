@@ -46,7 +46,7 @@ AutoForm.addHooks("COD-payment-form", {
     const form = {
       name: doc.payerName,
       number: doc.cardNumber,
-      type: Reaction.getCardType(doc.cardNumber)
+      type: "貨到付款"
     };
     const storedCard = form.type.charAt(0).toUpperCase() + form.type.slice(1) + " " + doc.cardNumber.slice(-4);
 
