@@ -44,11 +44,8 @@ AutoForm.addHooks("COD-payment-form", {
     const template = this.template;
     hidePaymentAlert();
     const form = {
-      name: doc.payerName,
-      number: doc.cardNumber,
       type: "貨到付款"
     };
-    const storedCard = form.type.charAt(0).toUpperCase() + form.type.slice(1) + " " + doc.cardNumber.slice(-4);
 
     COD.authorize(form, {
       total: Cart.findOne().cartTotal(),
@@ -63,7 +60,6 @@ AutoForm.addHooks("COD-payment-form", {
         if (transaction.saved === true) {
           paymentMethod = {
             processor: "COD",
-            storedCard: storedCard,
             method: "COD Payment",
             transactionId: transaction.transactionId,
             currency: transaction.currency,
