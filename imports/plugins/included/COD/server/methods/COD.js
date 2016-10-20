@@ -45,7 +45,6 @@ Meteor.methods({
     check(cardData, {
       name: String,
       number: ValidCardNumber,
-      cvv2: ValidCVV,
       type: String
     });
 

@@ -46,9 +46,6 @@ AutoForm.addHooks("COD-payment-form", {
     const form = {
       name: doc.payerName,
       number: doc.cardNumber,
-      expireMonth: doc.expireMonth,
-      expireYear: doc.expireYear,
-      cvv2: doc.cvv,
       type: Reaction.getCardType(doc.cardNumber)
     };
     const storedCard = form.type.charAt(0).toUpperCase() + form.type.slice(1) + " " + doc.cardNumber.slice(-4);
