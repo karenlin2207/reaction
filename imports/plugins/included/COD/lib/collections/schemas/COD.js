@@ -14,16 +14,3 @@ export const CODPackageConfig = new SimpleSchema([
     }
   }
 ]);
-
-export const CODPayment = new SimpleSchema({
-  payerName: {
-    type: String,
-    label: "匯款帳戶名"
-  },
-  cardNumber: {
-    type: String,
-    min: 13,
-    max: 16,
-    label: "匯款帳號末五碼"
-  }
-});
