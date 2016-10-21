@@ -944,7 +944,6 @@ Meteor.methods({
    */
   "cart/submitPayment": function (paymentMethod) {
     check(paymentMethod, Schemas.PaymentMethod);
-
     const checkoutCart = Collections.Cart.findOne({
       userId: Meteor.userId()
     });

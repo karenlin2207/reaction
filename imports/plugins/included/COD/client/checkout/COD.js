@@ -27,7 +27,7 @@ function handleCODSubmitError(error) {
   if (serverError) {
     return paymentAlert("Oops! " + serverError);
   } else if (error) {
-    return paymentAlert("Oops! " + error, null, 4);
+    return paymentAlert("Oops! " + error, null, 5);
   }
 }
 
@@ -37,57 +37,31 @@ Template.CODPaymentForm.helpers({
     return CODPayment;
   }
 });
-
-AutoForm.addHooks("COD-payment-form", {
-  onSubmit: function (doc) {
-    submitting = true;
-    const template = this.template;
-    hidePaymentAlert();
-    const form = {
-      type: "貨到付款"
-    };
-
-    COD.authorize(form, {
-      total: Cart.findOne().cartTotal(),
-      currency: Shops.findOne().currency
-    }, function (error, transaction) {
-      submitting = false;
-      let paymentMethod;
-      if (error) {
-        handleCODSubmitError(error);
-        uiEnd(template, "Resubmit payment");
-      } else {
-        if (transaction.saved === true) {
-          paymentMethod = {
+Template.CODPaymentForm.events({
+  'click #codbutton': function(event){
+    event.preventDefault();
+    var transactionId = Random.id();
+    var amount = parseInt(Cart.findOne().cartTotal());
+    var paymentMethod = {
             processor: "COD",
-            method: "COD Payment",
-            transactionId: transaction.transactionId,
-            currency: transaction.currency,
-            amount: transaction.amount,
+            method: "貨到付款",
+            storedCard: "貨到付款",
+            transactionId: transactionId,
+            currency: "NTD",
+            amount: amount,
             paymentstatus:"unpaid",
-            status: transaction.status,
+            status: "new",
             mode: "authorize",
             createdAt: new Date(),
             transactions: []
           };
-          paymentMethod.transactions.push(transaction.response);
+          response={
+          amount: amount,
+          transactionId: transactionId,
+          currency: "NTD"
+          };
+          paymentMethod.transactions.push(response);
           Meteor.call("cart/submitPayment", paymentMethod);
-        } else {
-          handleCODSubmitError(transaction.error);
-          uiEnd(template, "Resubmit payment");
-        }
-      }
-    });
-    return false;
-  },
-  beginSubmit: function () {
-    this.template.$(":input").attr("disabled", true);
-    this.template.$("#btn-complete-order").text("Submitting ");
-    return this.template.$("#btn-processing").removeClass("hidden");
-  },
-  endSubmit: function () {
-    if (!submitting) {
-      return uiEnd(this.template, "Complete your order");
-    }
   }
 });
+

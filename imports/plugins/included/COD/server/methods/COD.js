@@ -43,8 +43,6 @@ Meteor.methods({
   "CODSubmit": function (transactionType, cardData, paymentData) {
     check(transactionType, String);
     check(cardData, {
-      name: String,
-      number: ValidCardNumber,
       type: String
     });
 

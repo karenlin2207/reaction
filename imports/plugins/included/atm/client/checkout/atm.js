@@ -27,7 +27,7 @@ function handleatmSubmitError(error) {
   if (serverError) {
     return paymentAlert("Oops! " + serverError);
   } else if (error) {
-    return paymentAlert("Oops! " + error, null, 4);
+    return paymentAlert("Oops! " + error, null, 5);
   }
 }
 
@@ -46,9 +46,9 @@ AutoForm.addHooks("atm-payment-form", {
     const form = {
       name: doc.payerName,
       number: doc.cardNumber,
-      type: "貨到付款"
+      type: "ATM轉帳"
     };
-    const storedCard = form.type.charAt(0).toUpperCase() + form.type.slice(1) + " " + doc.cardNumber.slice(-4);
+    const storedCard = form.type.charAt(0).toUpperCase() + form.type.slice(1) + " " + doc.cardNumber.slice(-5);
 
     atm.authorize(form, {
       total: Cart.findOne().cartTotal(),

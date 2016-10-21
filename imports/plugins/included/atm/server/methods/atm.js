@@ -5,31 +5,6 @@ import { check, Match } from "meteor/check";
 // reaction modules
 import { Reaction, Logger } from "/server/api";
 
-function luhnValid(x) {
-  return [...x].reverse().reduce((sum, c, i) => {
-    let d = parseInt(c, 10);
-    if (i % 2 !== 0) { d *= 2; }
-    if (d > 9) { d -= 9; }
-    return sum + d;
-  }, 0) % 10 === 0;
-}
-
-const ValidCardNumber = Match.Where(function (x) {
-  return /^[0-9]{13,16}$/.test(x) && luhnValid(x);
-});
-
-const ValidExpireMonth = Match.Where(function (x) {
-  return /^[0-9]{1,2}$/.test(x);
-});
-
-const ValidExpireYear = Match.Where(function (x) {
-  return /^[0-9]{4}$/.test(x);
-});
-
-const ValidCVV = Match.Where(function (x) {
-  return /^[0-9]{3,4}$/.test(x);
-});
-
 
 
 Meteor.methods({
@@ -44,7 +19,7 @@ Meteor.methods({
     check(transactionType, String);
     check(cardData, {
       name: String,
-      number: ValidCardNumber,
+      number: String,
       type: String
     });
 

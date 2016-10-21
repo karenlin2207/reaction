@@ -14,8 +14,8 @@ Reaction.registerPackage({
     // Dashboard card
     {
       provides: "dashboard",
-      label: "atm Payment Provider",
-      description: "atm payment provider",
+      label: "ATM 匯款",
+      description: "ATM 匯款",
       icon: "fa fa-credit-card-alt",
       priority: 3,
       container: "paymentMethod"

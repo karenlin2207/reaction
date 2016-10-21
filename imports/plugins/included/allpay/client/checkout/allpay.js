@@ -70,7 +70,6 @@ Template.allpayPaymentForm.events({
   'click #allpaybutton': function(event){
     event.preventDefault();
     var doc = allpaycheckout();
-    console.log(doc);
     var paymentMethod = {
             processor: "AllPay",
             storedCard: "AllPay",

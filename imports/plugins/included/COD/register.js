@@ -14,8 +14,8 @@ Reaction.registerPackage({
     // Dashboard card
     {
       provides: "dashboard",
-      label: "COD Payment Provider",
-      description: "COD payment provider",
+      label: "貨到付款",
+      description: "貨到付款",
       icon: "fa fa-credit-card-alt",
       priority: 3,
       container: "paymentMethod"
